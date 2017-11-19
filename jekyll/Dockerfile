@@ -27,5 +27,5 @@ USER    jekyll
 WORKDIR /var/www
 
 EXPOSE 4000
-ENTRYPOINT ["jekyll server -w"]
+ENTRYPOINT ["/usr/local/bin/jekyll server -s /var/www -w"]
 # Run Jekyll as a non privileged user
