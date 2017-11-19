@@ -1,31 +1,15 @@
 # Run Jekyll in a container
 #
 # Examples:
-#  docker run --name jekyll -it -v .:/var/www -p 4000:4000 leonardothibes/jekyll
-#  docker run --name jekyll -it leonardothibes/jekyll
+#  docker run --rm --volume=$(pwd):/var/www -it leonardothibes/jekyll jekyll build
+#  docker run --rm --volume=$(pwd):/var/www -it leonardothibes/jekyll jekyll server -w
 #
-FROM       debian:jessie
+FROM       ubuntu
 MAINTAINER Leonardo Thibes <leonardothibes@gmail.com>
 
-USER root
-
-# Install Ruby + Jekyll
 RUN apt-get update && apt-get install -y ruby ruby-dev gcc make
 RUN gem install jekyll bundler
-# Install Ruby + Jekyll
+RUN mkdir -p /var/www
 
-# Add jekyll user + group
-RUN groupadd jekyll && useradd jekyll -g jekyll
-
-# Run Jekyll for first time
-WORKDIR /var
-RUN     jekyll new www && chown -R jekyll:jekyll /var/www
-# Run Jekyll for first time
-
-# Run Jekyll as a non privileged user
-USER    jekyll
 WORKDIR /var/www
-
-EXPOSE 4000
-ENTRYPOINT ["/usr/local/bin/jekyll server -s /var/www -w"]
-# Run Jekyll as a non privileged user
+CMD ["jekyll", "--help"]
