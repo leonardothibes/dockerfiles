@@ -19,11 +19,11 @@ RUN groupadd jekyll && useradd jekyll -g jekyll
 
 # Run Jekyll for first time
 WORKDIR /var
-RUN jekyll new www && chown -R jekyll:jekyll /var/www
+RUN     jekyll new www && chown -R jekyll:jekyll /var/www
 # Run Jekyll for first time
 
 # Run Jekyll as a non privileged user
-USER jekyll
+USER    jekyll
 WORKDIR /var/www
 
 EXPOSE 4000
