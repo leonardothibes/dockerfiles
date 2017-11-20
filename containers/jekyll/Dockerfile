@@ -8,7 +8,7 @@ FROM       ubuntu:xenial
 MAINTAINER Leonardo Thibes <leonardothibes@gmail.com>
 
 RUN apt-get update && apt-get install -y ruby ruby-dev gcc make
-RUN gem install jekyll bundler
+RUN gem install bundler jekyll jekyll-feed minima
 RUN mkdir -p /var/www
 
 WORKDIR /var/www
