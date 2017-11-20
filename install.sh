@@ -15,6 +15,7 @@ do
     EXEC="${HERE}/containers/${CONTAINER}/exec.sh"
     if [ -f ${EXEC} ]; then
         echo "Instaling ${CONTAINER}..."
-        # ln -sf ${BIN}/${CONTAINER} ${EXEC}
+        chmod 755 ${EXEC}
+        ln -sf ${EXEC} ${BIN}/${CONTAINER}
     fi;
 done;
