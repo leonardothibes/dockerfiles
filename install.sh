@@ -10,6 +10,11 @@ fi;
 BIN="${HOME}/.bin"
 HERE=$(pwd)
 
+if [ ! -d ${BIN} ]; then
+    echo "Directory \"${BIN}\" is missing!"
+    exit 1
+fi;
+
 for CONTAINER in $(ls containers)
 do
     EXEC="${HERE}/containers/${CONTAINER}/exec.sh"
