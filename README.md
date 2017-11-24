@@ -1,6 +1,8 @@
 My personal dockerfiles
 =======================
 
+All of these Dockerfiles are multi-platform between Mac and Linux.
+
 References:
 
 * https://docs.docker.com/engine/reference/commandline/commit
