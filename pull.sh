@@ -1,14 +1,20 @@
 #!/bin/bash
 
-USER=leonardothibes
 clear
+USER=leonardothibes
+SYSTEM=$(uname)
+DOCKER=$(which docker)
 
 if [ "$(which docker)" == "" ]; then
     echo "Docker not found!"
     exit 1
-fi;
+fi
+
+if [ $SYSTEM == "Linux" ]; then
+    DOCKER="sudo ${DOCKER}"
+fi
 
 for CONTAINER in $(ls containers)
 do
-    docker pull ${USER}/${CONTAINER}
-done;
+    ${DOCKER} pull ${USER}/${CONTAINER}
+done
