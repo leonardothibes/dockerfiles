@@ -16,6 +16,11 @@ if [ "$1" == "" ]; then
     exit 1
 fi
 
+if [ ! -d ${HERE}/containers/$1 ]; then
+    echo "Container not found: $1"
+    exit 1
+fi
+
 if [ $SYSTEM == "Linux" ]; then
     DOCKER="sudo ${DOCKER}"
 fi
