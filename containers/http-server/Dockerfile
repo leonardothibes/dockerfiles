@@ -3,7 +3,7 @@
 # Examples:
 #  docker run --rm --volume=$(pwd):/var/www -it -p 8000:8000 leonardothibes/http-server
 #
-FROM       ubuntu:xenial
+FROM       debian:jessie
 MAINTAINER Leonardo Thibes <leonardothibes@gmail.com>
 
 ADD http-server.py /usr/local/bin/http-server
